@@ -7,7 +7,8 @@ import srim
 
 def create_elementdb():
     dbpath = os.path.join(srim.__path__[0], 'data', 'elements.yaml')
-    return yaml.load(open(dbpath, "r"))
+    with open(dbpath, "r") as f:
+        return yaml.load(f, Loader=yaml.FullLoader)
 
 
 class ElementDB(object):
